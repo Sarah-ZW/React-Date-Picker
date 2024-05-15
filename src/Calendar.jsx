@@ -10,8 +10,9 @@ import {
   startOfMonth,
   startOfWeek,
 } from "date-fns"
+import { DateFact } from "./DateFact"
 
-//this is a test
+
 export function Calendar({ value, onChange }) {
   const [openCalendar, setOpenCalendar] = useState(false)
 
@@ -20,12 +21,17 @@ export function Calendar({ value, onChange }) {
   }
 
   return (
+    <>
     <div className="date-picker-container">
       <button onClick={openCloseButton} className="date-picker-button">
         {value == null ? "Select a Date" : format(value, "LLL do, yyyy ")}
       </button>
       {openCalendar && <DatePickerModal value={value} onChange={onChange} />}
-    </div>
+      </div>
+      <div className="date-fact">
+      {value == null ? "Once you pick a date, we'll show you a cool fact about that date right here" : <DateFact value = {value} />}
+      </div>
+      </>
   )
 }
 
