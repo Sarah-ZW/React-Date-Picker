@@ -20,7 +20,7 @@ export function DateFact({ value }) {
 
   return (
     <>
-      <p style={{ marginTop: "300px" }}>{numberFact}</p>
+      <p>{numberFact}</p>
     </>
   )
 }

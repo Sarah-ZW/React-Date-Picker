@@ -5,9 +5,28 @@ body {
   justify-content: center;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+h1, p {
+  text-align: center;
+}
+
+.date-fact {
+  margin-top: 20px;
+  max-width: 500px;
+}
+.numberFact, .pushDown {
+  max-width: 500px;
+  margin-top: 300px;
+}
+
 .date-picker-container {
   position: relative;
   display: inline-block;
+  text-align: center;
 }
 
 .date-picker-button {
