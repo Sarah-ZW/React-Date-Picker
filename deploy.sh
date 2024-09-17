@@ -1,11 +1,25 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "Switching to branch master"
+# Exit on any error
+set -e
+
+# Ensure we're in the project directory
+cd /mnt/c/Users/bighe/Documents/GitHub/React-Date-Picker
+
+# Switch to main branch
+echo "Switching to branch main"
 git checkout main
 
+# Pull latest changes
+echo "Pulling latest changes"
+git pull origin main
+
+# Build the application
 echo "Building app"
 npm run build
 
+# Deploy the files to the server
 echo "Deploying files to server"
-rsync -avP dist/ earthclaninfo@triviabydate.sarahzw.com:/var/www/triviabydate.sarahzw.com
+rsync -avz --delete-after dist/ earthclaninfo@triviabydate.sarahzw.com:/var/www/triviabydate
+
 echo "Deployment complete"
